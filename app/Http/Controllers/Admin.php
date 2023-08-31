@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facedes\Auth;
 use App\Models\SppModel;
+use Excel;
+use App\Exports\SppExport;
 
 class Admin extends Controller
 {
@@ -48,5 +50,10 @@ class Admin extends Controller
         $pembayaran->update($request->except(['_token', '_method']));
 
         return redirect()->to(url('pembayaran'))->with('dataEdit', 'Data Berhasil Di Edit');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new SppExport,'spp-excel.xlsx');
     }
 }

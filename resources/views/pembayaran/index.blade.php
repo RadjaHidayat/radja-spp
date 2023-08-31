@@ -10,7 +10,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">CRUD Laravel
-
+<
                     <button class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#tambahData">Tambah
                         Data</button>
                 </h6>
@@ -41,13 +41,14 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  <i class="fas fa-trash">Hapus</button></i>
                                             </form>
                                         
 
 
 
-                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal{{ $row->id }}">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning" 
+                                        data-toggle="modal" data-target="#editModal{{ $row->id }}"><i class="fas fa-pen">Edit</a></i>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="editModal{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel{{ $row->id }}" aria-hidden="true">
@@ -87,6 +88,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <a href="/excel-export"><button class="btn btn-sm btn-success">Download to Excel</button></a>
                 </div>
             </div>
         </div>
@@ -155,7 +157,6 @@
             })
         @endif
     </script>
-
 
 
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\Siswa;
 use App\Http\Controllers\Spp;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,4 @@ Route::group(['middleware' => ['auth']], function () {
  Route::get('/pembayaran/edit/{id}', [Spp::class, 'edit'])->name('pembayaran.edit');
  Route::put('/pembayaran/update/{id}', [Spp::class, 'update'])->name('pembayaran.update');
  Route::put('/siswa', [siswa::class, 'index']);
+ Route::get('excel-export',[Spp::class, 'exportExcel']);

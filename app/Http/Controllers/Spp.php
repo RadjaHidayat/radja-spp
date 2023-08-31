@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facedes\Auth;
 use App\Models\SppModel;
+use Excel;
+use App\Exports\SppExport;
 
 class Spp extends Controller
 {
@@ -49,4 +51,11 @@ class Spp extends Controller
 
         return redirect()->to(url('pembayaran'))->with('dataEdit', 'Data Berhasil Di Edit');
     }
+
+    public function exportExcel()
+    {
+        return Excel::download(new SppExport, 'spp-excel.xlsx');
+    }
+
+    
 }
